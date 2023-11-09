@@ -141,7 +141,7 @@
     /* Events and blog section */
     .events-blog {
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
         background-color: var(--black);
         color: var(--white);
     }
@@ -155,7 +155,7 @@
     .events-article {
         background-color: var(--red);
         border-radius: 10px;
-        margin: 0 30px;
+        margin: 30px 30px 0;
         padding: 20px;
     }
 
@@ -225,6 +225,53 @@
         width: 75%;
     }
 
+    /* About us section */
+    .about-us {
+        background-color: var(--grey);
+        color: var(--white);
+        font-size: 1.1em;
+    }
+
+    .about-us h3 {
+        font-size: 1.8em;
+        margin: 15px;
+        text-align: center;
+    }
+
+    .about-us .about-article {
+        margin: 0 30px;
+        text-align: justify;
+    }
+
+    .about-us .about-article p {
+       margin-bottom: 15px; 
+    }
+
+    .contact-article {
+        display: flex;
+        flex-direction: column;
+        margin: 15px 30px;
+    }
+
+    .contact-article img {
+        width: 100%;
+    }
+
+    .contact-article p {
+        text-align: center;
+    }
+
+    .contact-article button {
+        background-color: var(--red);
+        border: none;
+        border-radius: 15px;
+        color: var(--white);
+        font-size: 1.3em;
+        margin: 15px auto;
+        padding: 5px;
+        width: 60%;
+    }
+
     /* Footer section */
     footer {
         background-color: var(--black);
@@ -246,7 +293,7 @@
     }
 
     footer .logos img {
-        width: 10%;
+        width: 15%; 
     }
 
     footer .nav-footer {
