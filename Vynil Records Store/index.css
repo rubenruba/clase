@@ -496,7 +496,7 @@ footer .privacy {
         display: flex;
         flex-direction: column;
         height: 70vh;
-        overflow: scroll;
+        overflow: auto;
         gap: 20px;
     }
 
