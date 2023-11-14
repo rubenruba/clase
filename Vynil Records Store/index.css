@@ -29,14 +29,61 @@ header {
     border-bottom: 2px solid var(--red);
     box-shadow: 0px 10px 20px -2px var(--black);
     padding: 10px;
-    z-index: 50;
     position: sticky;
     top: 0;
+    z-index: 50;
+}
+
+/* Únicamente para que se muestre el menú en móvil */
+.dropdown {
+    position: absolute;
+    top: 0;
+}
+
+.dropdown:hover nav{
+    background-color: var(--black);
+    border-radius: 0 0 20px 0;
+    border-bottom: 2px solid var(--red);
+    border-right: 2px solid var(--red);
+    box-shadow: 0 0 20px 0 var(--black);
+    position: relative;
+    top: 65px;
+    left: -10px;
+    display: block;
+}
+
+nav{
+    display: none;
+}
+
+nav ul {
+    text-align: left;
+    padding: 0;
+}
+
+nav ul li {
+    font-size: 1.2em;
+}
+
+nav ul li:hover {
+    background-color: var(--red);
+}
+
+nav ul li:hover:last-of-type {
+    border-radius: 0 0 15px 0;
+}
+
+nav a {
+    color: var(--white);
+    display: block;
+    text-decoration: none;
+    padding: 10px 10px;
+    width: 100px;
 }
 
 .mobile-menu-icon {
     position: absolute;
-    top: 10px;
+    top: 12px;
     left: 10px;
     width: 40px;
     cursor: pointer;
@@ -44,10 +91,6 @@ header {
 
 .logo {
     width: 50px;
-}
-
-nav{
-    display: none;
 }
 
 /* Main image section */
@@ -66,17 +109,6 @@ nav{
     color: var(--white);
     width: 75%;
     z-index: 2;
-}
-
-.main-image button {
-    background-color: var(--red);
-    border: none;
-    border-radius: 20px;
-    color: var(--white);
-    margin-top: 30px;
-    font-size: 1.3em;
-    padding: 8px 0;
-    width: 70%;
 }
 
 .main-image img {
@@ -129,24 +161,19 @@ nav{
     margin-bottom: 10px;
     padding: 5px;
     width: 80%;
+    cursor: pointer;
 }
 
 .shop-item img {
     width: 100%;
 }
 
-.buy-now-button {
-    background-color: var(--red);
-    border: none;
-    border-radius: 15px;
-    color: var(--white);
-    padding: 5px;
-    font-size: 1.1em;
-    width: 60%;
+.btm-wave {
+    margin-bottom: -5px;
 }
 
-.btm-wave {
-    margin-bottom: -4px;
+.top-wave {
+    margin-top: -5px;
 }
 
 /* Events and blog section */
@@ -206,6 +233,7 @@ nav{
     opacity: 90%;
     padding: 5px;
     width: 60%;
+    cursor: pointer;
 }
 
 .event-item div p {
@@ -223,17 +251,6 @@ nav{
 .blog-article p {
     text-align: justify;
     font-size: var(--titleSizeMobile);
-}
-
-.blog-article button {
-    background-color: var(--red);
-    border: none;
-    border-radius: 15px;
-    color: var(--white);
-    font-size: 1.5em;
-    margin: auto;
-    padding: 5px;
-    width: 75%;
 }
 
 /* About us section */
@@ -272,25 +289,14 @@ nav{
     text-align: center;
 }
 
-.contact-article button {
-    background-color: var(--red);
-    border: none;
-    border-radius: 15px;
-    color: var(--white);
-    font-size: 1.3em;
-    margin: 15px auto;
-    padding: 5px;
-    width: 60%;
-}
-
 /* Footer section */
 footer {
     background-color: var(--black);
     color: var(--white);
     display: grid;
+    justify-items: center;
     gap: 15px;
-    grid-template-columns: 2;
-    grid-template-rows: 2;
+    grid-template-columns: auto auto;
     padding: 15px;
 }
 
@@ -325,6 +331,19 @@ footer .privacy {
     grid-column: 2;
 }
 
+/* BUTTON STYLES */
+.contact-article button, .blog-article button, .buy-now-button, .main-image button {
+    background-color: var(--red);
+    border: none;
+    border-radius: 20px;
+    color: var(--white);
+    margin: 30px auto auto auto;
+    font-size: 1.3em;
+    padding: 8px 0;
+    width: 70%;
+    cursor: pointer;
+}
+
 /* STYLES FOR DESKTOP */
 @media only screen and (min-width: 992px) {
     header {
@@ -343,6 +362,23 @@ footer .privacy {
     .mobile-menu-icon {
         display: none;
     }
+
+    /* Quita los estilos de la parte móvil */
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown:hover nav{
+        background-color: none;
+        border: none;
+        box-shadow: none;
+        position: static;
+        border-radius: 0;
+    }
+
+    nav ul li:hover:last-of-type {
+        border-radius: 15px;
+    }   
     
     /* Navigation menu styles */
     nav {
@@ -357,15 +393,15 @@ footer .privacy {
     }
     
     li {
-        background-color: var(--red);
         border-radius: 15px;
         text-align: center;
         color: var(--white);
-        padding: 10px;
+        padding: 0;
         min-width: 75px;
     }
 
     li a {
+        padding: 7px 0;
         text-decoration: none;
         color: var(--white);
     }
@@ -403,17 +439,6 @@ footer .privacy {
         width: 100%;
         filter: brightness(40%);
     }
-    
-    .main-image button {
-        background-color: var(--red);
-        border: none;
-        color: var(--white);
-        margin-top: 75px;
-        padding: 15px 0;
-        border-radius: 25px;
-        font-size: var(--buttonFontSize);
-        width: 40%;
-    }
 
     /* Shop section */
     .shop {
@@ -448,7 +473,7 @@ footer .privacy {
         color: var(--white);
         font-size: 1.1em;
         margin-bottom: 10px;
-        padding: 5px;
+        padding: 10px;
         width: 80%;
     }
 
@@ -456,28 +481,22 @@ footer .privacy {
         width: 100%;
     }
 
-    .buy-now-button {
-        background-color: var(--red);
-        border: none;
-        border-radius: 20px;
-        color: var(--white);
-        font-size: var(--buttonFontSize);
-        margin: 10px 0;
-        padding: 10px;
-        width: 25%;
-    }
-
     /* Events and blog section */
     .events-blog {
         display: grid;
         grid-template-columns: 50% 50%;
         background-color: var(--black);
+        background-image: url('img/music-note.svg');
+        background-repeat: round;
         color: var(--white);
+        padding: 0 100px;
     }
 
     .event-items-container {
         display: flex;
         flex-direction: column;
+        height: 70vh;
+        overflow: scroll;
         gap: 20px;
     }
 
@@ -486,8 +505,6 @@ footer .privacy {
         border-radius: 20px;
         margin: 30px;
         padding: 20px;
-        /* height: 50vh;
-        overflow: scroll; */
     }
 
     .events-article h3 {
@@ -524,8 +541,8 @@ footer .privacy {
         font-size: 1.1em;
         margin: 50px auto 0;
         opacity: 90%;
-        padding: 5px;
-        width: 50%;
+        padding: 10px;
+        width: 60%;
     }
 
     .event-item div p {
@@ -547,17 +564,6 @@ footer .privacy {
         font-size: var(--titleSizeDesktop);
     }
 
-    .blog-article button {
-        background-color: var(--red);
-        border: none;
-        border-radius: 25px;
-        color: var(--white);
-        font-size: var(--buttonFontSize);
-        margin: 20px auto;
-        padding: 15px;
-        width: 75%;
-    }
-
     /* About us section */
     .about-us {
         background-color: var(--grey);
@@ -573,7 +579,9 @@ footer .privacy {
 
     .about-us div {
         display: grid;
+        align-items: center;
         grid-template-columns: 50% 50%;
+        padding: 0 80px;
     }
 
     .about-us .about-article {
@@ -602,17 +610,6 @@ footer .privacy {
         font-size: 1.1em;
     }
 
-    .contact-article button {
-        background-color: var(--red);
-        border: none;
-        border-radius: 15px;
-        color: var(--white);
-        font-size: var(--buttonFontSize);
-        margin: 30px auto 0;
-        padding: 5px;
-        width: 60%;
-    }
-
     /* Footer section */
     footer {
         background-color: var(--black);
@@ -639,7 +636,8 @@ footer .privacy {
     }
 
     footer .logos img {
-        width: 20%; 
+        width: 10%; 
+        cursor: pointer;
     }
 
     footer .nav-footer {
@@ -653,5 +651,37 @@ footer .privacy {
         flex-direction: column;
         gap: 5px;
         text-align: right;
+    }
+
+    /* BUTTON STYLES */
+    .contact-article button, .blog-article button, .buy-now-button, .main-image button {
+        background-color: var(--red);
+        border: none;
+        border-radius: 25px;
+        color: var(--white);
+        font-size: var(--buttonFontSize);
+        margin: 20px auto;
+        padding: 15px;
+        width: 75%;
+    }
+
+    .contact-article button {
+        font-size: 1.2em;
+    }
+
+    .buy-now-button {
+        width: 25%;
+    }
+
+    .main-image button {
+        width: 40%;
+    }
+
+    .contact-article button:hover, 
+    .blog-article button:hover, 
+    .buy-now-button:hover, 
+    .main-image button:hover {
+        box-shadow: 0px 0px 15px -2px var(--salmon);
+        transition: 100ms;
     }
 }
