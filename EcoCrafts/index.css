@@ -1,0 +1,25 @@
+/* Import Montserrat font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Variables */
+:root {
+    --brown: #a7906f;
+    --mediumBrown: #cca669;
+    --orange: #f0bb62;
+    --yellow: #F4EEA9;
+    --lighGreen: #A3C081;
+    --normalGreen: #519259;
+    --darkGreen: #064635;
+}
+
+/* Mobile styles */
+
+/* Desktop styles */
