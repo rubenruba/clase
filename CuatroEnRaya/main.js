@@ -64,25 +64,46 @@ function updateGameBoard(columnNumber){
 function checkWin(){
     let win = false;
 
-    for(let i = 0; i < gameBoard.length; i++){
-        for(let j = 0; j < gameBoard[i].length; j++){
-            // Check rows
-            if(gameBoard[i][j] !== 0 && gameBoard[i][j] === gameBoard[i][j + 1] && gameBoard[i][j] === gameBoard[i][j + 2] && gameBoard[i][j] === gameBoard[i][j + 3]){
-                win = true;
-                alert("WIN IN ROWS")
+    // Check win in rows
+    gameBoard.forEach(row => {
+        for(let i = 0; i < row.length; i++){
+            if(i < 4 && row[i] !== 0){
+                if(row[i] === row[i+1] && row[i+2] && row[i] === row[i+3]){
+                    win = true;
+                    alert("WIN IN ROWS");
+                }
             }
-            // Check columns
-            if(gameBoard[i][j] !== 0 && gameBoard[i][j] === gameBoard[i + 1][j] && gameBoard[i][j] === gameBoard[i + 2][j] && gameBoard[i][j] === gameBoard[i + 3][j]){
-                win = true;
-                alert("WIN IN COLUMNS")
-            }
-            // Check diagonals
-            if(gameBoard[i][j] !== 0 && gameBoard[i][j] === gameBoard[i + 1][j + 1] && gameBoard[i][j] === gameBoard[i + 2][j + 2] && gameBoard[i][j] === gameBoard[i + 3][j + 3]){
-                win = true;
-                alert("WIN IN DIAGONALS")
-            }
-        } 
+        }
+    })
+
+    // Check win in columns
+    for(let i = 0; i < 7; i++){
+        const start = gameBoard[0][i];
+        if(start !== 0 && start === gameBoard[0][i+1] && start === gameBoard[0][i+2] && start === gameBoard[0][i+3]){
+            win = true;
+            alert("WIN IN COLUMNS");
+        }
     }
+
+    // for(let i = 0; i < gameBoard.length; i++){
+    //     for(let j = 0; j < gameBoard[i].length; j++){
+    //         // Check rows
+    //         if(gameBoard[i][j] !== 0 && gameBoard[i][j] === gameBoard[i][j + 1] && gameBoard[i][j] === gameBoard[i][j + 2] && gameBoard[i][j] === gameBoard[i][j + 3]){
+    //             win = true;
+    //             alert("WIN IN ROWS")
+    //         }
+    //         // Check columns
+    //         if(gameBoard[i][j] !== 0 && gameBoard[i][j] === gameBoard[i + 1][j] && gameBoard[i][j] === gameBoard[i + 2][j] && gameBoard[i][j] === gameBoard[i + 3][j]){
+    //             win = true;
+    //             alert("WIN IN COLUMNS")
+    //         }
+    //         // Check diagonals
+    //         if(gameBoard[i][j] !== 0 && gameBoard[i][j] === gameBoard[i + 1][j + 1] && gameBoard[i][j] === gameBoard[i + 2][j + 2] && gameBoard[i][j] === gameBoard[i + 3][j + 3]){
+    //             win = true;
+    //             alert("WIN IN DIAGONALS")
+    //         }
+    //     } 
+    // }
 }
 
 addClickToColumn();
