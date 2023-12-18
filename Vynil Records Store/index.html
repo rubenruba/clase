@@ -12,76 +12,92 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
+            gap: 70px;
             height: 100vh;
             margin: 0;
         }
 
-        #main-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0;
-        }
-
-        img:nth-child(1) {
-            margin-bottom: -9%;
-            width: 10vw;
-        }
-
-        img:nth-child(2){
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 10vw;
-        }
-
-        #loader-container {
-            background-color: #C7C7C7;
-            border: 2px solid black;
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            overflow: hidden;
-            position: relative;
-            height: 50vh;
-            width: 15vw;
-            max-width: 150px;
-        }
-
-        #battery-cell {
-            animation: 5s fill linear;
-            background-color: lightgreen;
-            height: 100%;
+        img {
+            width: 15%;
+            filter: brightness(0) invert(1);
+            max-width: 300px;
         }
 
         p {
             color: white;
             font-family: 'Comfortaa', sans-serif;
+            font-size: 1.4em;
         }
 
-        @keyframes fill {
-            0% {position: relative; bottom: -100%; background-color: red;}
-            25% {position: relative; bottom: -75%; background-color: orangered;}
-            50% {position: relative; bottom: -50%; background-color: orange;}
-            80% {position: relative; bottom: -20%; background-color: orange;}
-            100% {position: relative; bottom: 0; background-color: lightgreen;}
+        .notes {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .text-progress {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 20px;
+            text-align: center;
+        }
+
+        .progress-bar {
+            border: 2px solid white;
+            border-radius: 10px;
+            height: 10px;
+            width: 60%;
+            overflow: hidden;
+        }
+
+        .progress-content {
+            background-color: #C63232;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            animation: 6s progress ease-in;
+        }
+
+        @keyframes bounce {
+            0% { position: relative; top: 0; }
+            50% { position: relative; top: 50px; }
+            100% { position: relative; top: 0px; }
+        }
+
+        @keyframes progress {
+            from { margin-left: -100%; }
+            to { margin-left: 0; }
         }
     </style>
 </head>
 <body>
-    <div id="main-container">
-        <img src="img/car-battery.svg" alt="car-battery">
-        <div id="loader-container">
-            <div id="battery-cell"></div>
-            <img src="img/bolt.svg" alt="bolt">
-        </div>
-        <p>Please wait until the web is loaded...</p>
+    <div class="notes">
+        <img src="img/nota-musical.png" alt="">
+        <img src="img/musica.png" alt="">
+        <img src="img/nota-musical.png" alt="">
     </div>
-
+    <div class="text-progress">
+        <p>Please wait until the page is accesible...</p>
+        <div class="progress-bar">
+            <div class="progress-content"></div>
+        </div>
+    </div>
+    
     <script>
-        // setTimeout(() => {window.location.href = 'vynil.html'}, 6000);
+        const images = Array.from(document.querySelectorAll('img'));
+
+        images[0].style.animation = 'bounce 2s infinite';
+        setTimeout(() => {
+            images[1].style.animation = 'bounce 2s infinite';
+        }, 200);
+        setTimeout(() => {
+            images[2].style.animation = 'bounce 2s infinite';
+        }, 400);
+        setTimeout(() => {
+            window.location.href = 'vynil.html'
+        }, 6100);
     </script>
 </body>
 </html>
