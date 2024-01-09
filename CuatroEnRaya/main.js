@@ -54,32 +54,30 @@ function updateGameBoard(columnNumber){
         }
     })
 
-    checkWin();
+    checkWin(columnNumber);
 
     gameBoard.reverse();
     console.log(gameBoard);
 }
 
 // Check if there is a win
-function checkWin(){
+function checkWin(columnNumber){
     let win = false;
 
-    // Check win in rows
-    gameBoard.forEach(row => {
-        for(let i = 0; i < row.length; i++){
-            if(i < 4 && row[i] !== 0){
-                if(row[i] === row[i+1] && row[i+2] && row[i] === row[i+3]){
-                    win = true;
-                    alert("WIN IN ROWS");
-                }
+    // Check win in rows (every row)
+    gameBoard.forEach(row => { // 4 because is not necessary more
+        for(let i = 0; i < 4; i++){
+            if(row[i] !== 0 && row[i] === row[i+1] && row[i] === row[i+2] && row[i] === row[i+3]){
+                win = true;
+                alert("WIN IN ROWS");
             }
         }
-    })
+    });
 
-    // Check win in columns
-    for(let i = 0; i < 7; i++){
-        const start = gameBoard[0][i];
-        if(start !== 0 && start === gameBoard[0][i+1] && start === gameBoard[0][i+2] && start === gameBoard[0][i+3]){
+    // Check win in columns (only the selected column)
+    for(let i = 0; i < 3; i++){ // 3 because is not necessary more
+        const j = columnNumber;
+        if(gameBoard[i][j] !== 0 && gameBoard[i][j] === gameBoard[i+1][j] && gameBoard[i][j] === gameBoard[i+2][j] && gameBoard[i][j] === gameBoard[i+3][j]){
             win = true;
             alert("WIN IN COLUMNS");
         }
